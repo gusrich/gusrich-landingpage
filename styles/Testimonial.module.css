@@ -1,0 +1,67 @@
+/* styles/Testimonial.module.css */
+
+.sectionContainer {
+    /* Background Ungu Tua untuk kontras dengan section sebelumnya (Abu-abu Muda) */
+    background-color: #4B0082; /* Ungu Tua */
+    padding: 80px 5%;
+    text-align: center;
+    color: white; /* Teks putih di atas background ungu */
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #00FFFF; /* Cyan untuk judul */
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.testimonialGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsif */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonialCard {
+    /* Background putih untuk kartu, teks ungu tua */
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    color: #4B0082; /* Teks ungu tua di dalam kartu */
+    
+    /* Garis Cyan di kiri kartu */
+    border-left: 5px solid #00FFFF;
+    
+    /* Optimasi Pagespeed: Hanya transform & shadow untuk transisi */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonialCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    font-size: 2.5rem; /* Ukuran ikon */
+    color: #00FFFF; /* Warna ikon Cyan */
+    margin-bottom: 15px;
+    display: block; /* Agar ikon di baris sendiri */
+}
+
+.quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.client {
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: right;
+    color: #4B0082; /* Warna client tetap ungu tua */
+}

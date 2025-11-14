@@ -1,0 +1,50 @@
+/* styles/Footer.module.css */
+
+:root {
+    /* Gunakan variabel lo untuk memastikan konsistensi warna */
+    --cyan-accent: #00FFFF;
+}
+
+.footerContainer {
+    /* Background gelap (hampir hitam) agar terlihat profesional */
+    background-color: #222; 
+    padding: 30px 5%;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.contentWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Membuat konten sejajar (Copyright, Links, Branding) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 15px; /* Jarak antar kolom */
+}
+
+.copyright {
+    color: white;
+    font-weight: 500;
+}
+
+.links a {
+    color: #ccc;
+    text-decoration: none;
+    margin-right: 20px;
+    
+    /* Optimasi Pagespeed: Transisi cepat */
+    transition: color 0.2s ease;
+}
+
+.links a:hover {
+    color: var(--cyan-accent); /* Aksen Cyan saat di-hover */
+}
+
+.branding {
+    /* Branding Clean Code dengan warna Cyan */
+    color: var(--cyan-accent); 
+    font-style: italic;
+    font-weight: 600;
+}

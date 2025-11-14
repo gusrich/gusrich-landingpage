@@ -1,0 +1,146 @@
+/* styles/PricingProcess.module.css */
+
+/* --- VARIABEL WARNA (Untuk konsistensi Pagespeed) --- */
+/* Ganti nilai ini dengan kode hex yang lo pakai */
+:root {
+    --purple-dark: #4B0082; 
+    --cyan-accent: #00FFFF;
+}
+
+/* SECTION UTAMA */
+.sectionContainer {
+    background-color: white; /* Putih bersih untuk kejujuran */
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.contentWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    color: var(--purple-dark);
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.introText {
+    color: var(--purple-dark);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+/* GRID PAKET */
+.packageGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+/* GAYA KARTU PAKET */
+.packageCard {
+    background-color: #fcfcfc;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid transparent; /* Default top border */
+    height: 100%;
+    
+    /* Optimasi Pagespeed */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.packageCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- ACCENT BORDERS (Digunakan di JSX) --- */
+.accentCyan {
+    border-top-color: var(--cyan-accent); /* Border Cyan untuk Audit dan Rebuild */
+}
+
+.accentPurple {
+    border-top-color: var(--purple-dark); /* Border Ungu untuk Fix & Optimize */
+}
+
+/* KONTEN KARTU */
+.cardTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--purple-dark);
+    margin-bottom: 15px;
+}
+
+.icon {
+    margin-right: 10px;
+    color: var(--cyan-accent); /* Ikon berwarna Cyan */
+    font-size: 1.5rem;
+}
+
+.cardBody {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.featureList {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.featureList li::before {
+    content: "•";
+    color: var(--cyan-accent);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.infoBlock {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--purple-dark);
+}
+
+.closingTagline {
+    font-style: italic;
+    color: #666;
+    margin-top: 50px;
+    font-size: 1rem;
+}
+/* Tambahkan di bagian bawah styles/PricingProcess.module.css */
+
+.ctaWaButton {
+    /* Tombol Cyan yang mencolok */
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+    margin-top: 20px;
+    
+    background-color: var(--cyan-accent); /* Cyan */
+    color: var(--purple-dark); /* Teks Ungu Tua */
+    
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 6px;
+    
+    /* Pagespeed: Hanya mengubah background dan shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.4); /* Shadow Cyan */
+}
+
+.ctaWaButton:hover {
+    background-color: #00e0e0; /* Sedikit lebih gelap saat hover */
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.6);
+}
