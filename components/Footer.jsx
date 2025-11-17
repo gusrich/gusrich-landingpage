@@ -1,31 +1,72 @@
-// components/Footer.jsx - FOOTER
+// components/Footer.jsx
+import Image from 'next/image';
 
-import styles from '../styles/Footer.module.css';
+export default function Footer() {
+  const currentYear = new Date().getFullYear(); 
 
-const Footer = () => {
-    return (
-        <footer className={styles.footerContainer}>
-            <div className={styles.contentWrapper}>
-                
-                {/* Kolom 1: Copyright */}
-                <p className={styles.copyright}>
-                    © {new Date().getFullYear()} GusRich Web Programmer. All rights reserved.
-                </p>
+  return (
+    // bg-darkBlue, text-lightGray: Asumsi warna dari setup Tailwind lo
+    <footer className="bg-darkBlue text-lightGray py-10">
+      <div className="container mx-auto px-6 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          {/* Brand & Logo (Diperbesar, Tanpa Teks Deskripsi) */}
+          <div>
+            <Image
+              src="/images/gusrich-logo.png" 
+              alt="GusRich Web Programmer Logo"
+              width={500} // LEBAR LOGO (misalnya 200px)
+              height={350} // TINGGI LOGO (misalnya 64px)
+              className="w-52 lg:w-72 mb-4"// Class Tailwind h-16 (64px)
+            />
+          </div>
 
-                {/* Kolom 2: Tautan Hukum */}
-                <div className={styles.links}>
-                    {/* Lo ganti # dengan link halaman asli lo ya! */}
-                    <a href="#" className={styles.link}>Privacy Policy</a> 
-                    <a href="#" className={styles.link}>Terms of Service</a>
-                </div>
+          {/* Quick links */}
+          <div>
+            <h4 className="text-sm font-semibold text-cyanAccent mb-2">Navigasi</h4>
+            <ul className=" space-y-2 text-sm">
+              <li>
+                <a href="#about" className="hover:text-cyanAccent transition">
+                  About Me
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-cyanAccent transition">
+                  Layanan
+                </a>
+              </li>
+              <li>
+                <a href="#portfolio" className="hover:text-cyanAccent transition">
+                  Portfolio
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-cyanAccent transition">
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-cyanAccent transition">
+                  Kontak
+                </a>
+              </li>
+            </ul>
+          </div>
 
-                {/* Kolom 3: Branding Tambahan */}
-                <p className={styles.branding}>
-                    Dibuat dengan **Clean Code** oleh GusRich.
-                </p>
+          {/* Social & contact */}
+          <div>
+            <h4 className="text-sm font-semibold text-cyanAccent mb-2">Ikuti & Hubungi</h4>
+            <div className="space-y-1 text-sm">
+              <p>📧 gusrich@proton.me</p>
+              <p>🌐 linkedin.com/gusrich</p>
             </div>
-        </footer>
-    );
-};
+          </div>
+        </div>
 
-export default Footer;
+        <div className="border-t border-lightGray/20 mt-8 pt-4 text-center text-xs text-lightGray/60">
+          © {currentYear} GusRich Web Programmer. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  );
+}

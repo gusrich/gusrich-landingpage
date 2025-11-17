@@ -1,34 +1,24 @@
-// components/ClosingArgument.jsx - SECTION 6: CLOSING ARGUMENT
+// components/ClosingArgument.jsx
 
-import styles from '../styles/ClosingArgument.module.css'; 
-
-// Nomor WA dan Pesan CTA Utama (Audit GRATIS)
-const waNumber = '6281210818919'; 
-const ctaMessage = 'Halo GusRich, saya mau *Minta Audit GRATIS* untuk website saya. Mohon dibantu untuk proses selanjutnya. Website saya [NAMA_DOMAIN_ANDA].';
-const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(ctaMessage)}`;
-
-const ClosingArgument = () => {
+export default function ClosingStatement() {
   return (
-    // Menggunakan background Ungu Tua untuk kontras maksimum
-    <section className={styles.sectionContainer}>
+    <section className="bg-gray-100 py-16 px-6 md:px-10 lg:px-20 text-center">
       
-      {/* H2 UTAMA PENUTUP */}
-      <h2 className={styles.title}>
+      {/* Judul utama */}
+      <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-6 animate-fadeInUp">
         Jangan Sampai Anda Salah Memilih Jasa Pembuatan Website!
       </h2>
       
-      {/* CTA UTAMA FINAL (Tombol Cyan paling besar) */}
-      <a 
-        href={waLink} 
-        target="_blank" 
+      {/* CTA Button */}
+      <a
+        href="https://wa.me/6281210818919?text=Halo%20GusRich%2C%20saya%20mau%20%2AMinta%20Audit%20GRATIS%2A%20untuk%20website%20saya.%20Mohon%20dibantu%20untuk%20proses%20selanjutnya.%20Website%20saya%20%5BNAMA_DOMAIN_ANDA%5D."
+        target="_blank"
         rel="noopener noreferrer"
-        className={styles.ctaFinalButton}
+        className="inline-block bg-cyan-400 text-gray-900 font-bold py-4 px-8 rounded-full shadow-lg hover:bg-cyan-500 transition transform hover:scale-105 animate-bounceSlow"
       >
         Kirim Pesan Sekarang, dan ngobrol lebih dalam
       </a>
 
     </section>
   );
-};
-
-export default ClosingArgument;
+}

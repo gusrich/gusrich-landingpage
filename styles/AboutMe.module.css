@@ -1,0 +1,108 @@
+/* styles/AboutMe.module.css */
+
+.aboutSection {
+    padding: 80px 5%;
+    background-color: white; /* Kontras dengan Hero Section yang ungu */
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex; /* Mengaktifkan layout 2 kolom */
+    gap: 40px; 
+    align-items: center;
+}
+
+/* --- KOLOM KIRI (TEKS) --- */
+.textContainer {
+    flex: 1; /* Mengambil sisa ruang */
+}
+
+.mainTitle {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: var(--cyan-accent, #00BCD4); /* Warna Cyan/Aksen */
+}
+
+.paragraph {
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.statBox {
+    margin: 30px 0;
+    padding: 20px;
+    border: 1px solid #eee;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.statBox p {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* --- KOLOM KANAN (FOTO) --- */
+.imageContainer {
+    flex: 0 0 400px; /* Lebar tetap untuk foto di desktop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilePlaceholder {
+    width: 300px;
+    height: 350px;
+    background-color: var(--purple-light, #BA68C8); /* Placeholder warna ungu muda */
+    border-radius: 12px;
+    /* Efek visual tambahan */
+    box-shadow: 10px 10px 0 var(--cyan-accent, #00BCD4); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* --- CTA BUTTON --- */
+.ctaButton {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--cyan-accent, #00BCD4);
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+.ctaButton:hover {
+    background-color: #0097a7; /* Cyan lebih gelap */
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column; /* Ubah ke susunan vertikal */
+    }
+    
+    .imageContainer {
+        order: -1; /* Pindahkan gambar ke atas di mobile */
+        margin-bottom: 30px;
+        flex: auto;
+    }
+    .profilePlaceholder {
+        width: 100%; 
+        max-width: 300px;
+        height: 250px;
+    }
+    .mainTitle {
+        font-size: 1.8rem;
+    }
+}

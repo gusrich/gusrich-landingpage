@@ -1,59 +1,71 @@
-// components/FAQ.jsx
+"use client"; // ← Tambahkan ini di paling atas
 
-import styles from '../styles/FAQ.module.css';
+import { useState } from "react";
 
-const Faq = () => {
-  // Data FAQ (Lo bisa tambahkan lagi nanti)
+export default function FAQ() {
   const faqData = [
     {
       question: "Apa itu 'Clean Code' dan mengapa itu penting untuk website saya?",
-      answer: "Clean Code adalah kode yang rapi, mudah dibaca, dan mudah dikelola. Ini sangat penting karena memastikan website anda cepat (skor PageSpeed tinggi) dan meminimalisir bug, sehingga google sangat menyukai type website seperti ini.",
+      answer: "Clean Code adalah kode yang rapi & mudah dibaca, dan mudah dikelola oleh mesin Google. Ini memastikan website Anda cepat (skor PageSpeed tinggi) dan meminimalisir bug, sangat disukai Google.",
     },
     {
       question: "Apa saja yang termasuk dalam Technical SEO Superior?",
-      answer: "Technical SEO Superior mencakup implementasi metadata yang benar, JSON-LD Schema Markup, sitemap.xml, robots.txt, dan memastikan kecepatan loading website di bawah 2 detik. Ini adalah pondasi wajib agar Google dapat mengindeks sebuah website dengan cepat dan tepat.",
+      answer: "Technical SEO Superior mencakup metadata yang benar, JSON-LD Schema, sitemap.xml, robots.txt, dan loading di bawah 2 detik — pondasi Google indexing.",
     },
     {
       question: "Berapa lama waktu yang dibutuhkan untuk perbaikan website Clean Code?",
-      answer: "Waktu perbaikan sangat bervariasi tergantung kompleksitas dan seberapa 'kotor' kode awal. Kami akan memberikan estimasi pasti setelah melakukan Audit GRATIS dan menganalisis kode website anda secara mendalam.",
+      answer: "Tergantung seberapa 'kotor' website Anda. Kami estimasi setelah *audit gratis* dan analisis menyeluruh.",
     },
     {
       question: "Apakah ada garansi setelah perbaikan kode?",
-      answer: "Ya, kami memberikan garansi skor PageSpeed 90+ dan garansi bug code selama periode tertentu. Kami memastikan website lo siap bersaing setelah layanan selesai.",
+      answer: "Ya, skor PageSpeed 90+ dan garansi bug selama periode tertentu dijamin.",
     },
     {
-      question: "Apakah setelah saya membuat website menggunakan clean code, akan langsung berada di halaman pertama Google?",
-      answer: "saya tidak bisa menjamin akan hal itu, banyak faktor yang mempengaruhi untuk website anda berada disana. Namun, saya pastikan, website yang saya buat, sudah memenuhi aturan main persaingan di halaman Google, baru kemudian bagaimana bisnis anda, niche anda, positioning bisnis anda, keunikan tagline bisnis anda dsb.",
+      question: "Apakah setelah membuat website dengan clean code langsung ada di halaman 1 Google?",
+      answer: "Saya bisa menjamin, web yang saya buat bisa bersaing di halaman pertama Google namun perlu diketahui sebenarnya Banyak faktor lain seperti niche, bisnis, konten, dan positioning Bisnis anda",
     },
     {
-      question: "Apa bedanya Gusrich Programmer dengan jasa web lain?",
-      answer: "Saya membuat website dengan code manual, baris demi baris. Bukan generator, tempelate, elementor dan cara cepat lain. saya jamin website anda yang saya buat, saya pahami dan saya susun dengan hati dan tanggung jawab ",
+      question: "Apa bedanya GusRich Programmer dengan jasa web lain?",
+      answer: "Saya membangun website dengan kode manual, bukan generator. Setiap baris saya pahami dan tanggung jawab atas kinerjanya.",
     },
     {
-      question: "Apakah artinya generator web builder?",
-      answer: "Sebuah cara yang dilakukan kebanyakan orang untuk membuat website, cara ini mudah dan cepat, andapun bisa membuatnya, namun cara ini sangat tidak disukai oleh google, silakan tanyakan kepada pembuat website yang muncul di google, bagaimana mereka membangunnya. Saya bisa jamin, tidak secara instan / dengan generator-.",
+      question: "Apa artinya generator web builder?",
+      answer: "Metode cepat untuk membuat website, menggunakan bantuan AI tapi cenderung tidak disukai Google. Website generator jarang muncul di page 1.",
     },
   ];
 
+  const [activeIndex, setActiveIndex] = useState(null);
+
   return (
-    <section className={styles.faqSection}>
-      <h2 className={styles.faqTitle}>❓ Pertanyaan yang Sering Diajukan (FAQ)</h2>
-      
-      <div className={styles.faqList}>
+    <section className="py-16 px-6 md:px-10 lg:px-20 bg-gray-50">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-10">
+        ❓ Pertanyaan yang Sering Diajukan (FAQ)
+      </h2>
+
+      <div className="space-y-4 max-w-3xl mx-auto">
         {faqData.map((item, index) => (
-          // Lo bisa mengembangkan ini menjadi Accordion Component nanti.
-          <div key={index} className={styles.faqItem}>
-            <h3 className={styles.faqQuestion}>
+          <div
+            key={index}
+            className="border border-gray-300 rounded-lg overflow-hidden"
+          >
+            <button
+              onClick={() =>
+                setActiveIndex(activeIndex === index ? null : index)
+              }
+              className="w-full flex justify-between items-center p-4 text-left font-semibold text-gray-700 hover:bg-gray-100 transition"
+            >
               {item.question}
-            </h3>
-            <p className={styles.faqAnswer}>
-              {item.answer}
-            </p>
+              <span>{activeIndex === index ? "▲" : "▼"}</span>
+            </button>
+
+            {activeIndex === index && (
+              <div className="p-4 text-gray-600 bg-white border-t border-gray-200">
+                {item.answer}
+              </div>
+            )}
           </div>
         ))}
       </div>
     </section>
   );
-};
-
-export default Faq;
+}

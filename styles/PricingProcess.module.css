@@ -144,3 +144,61 @@
     background-color: #00e0e0; /* Sedikit lebih gelap saat hover */
     box-shadow: 0 6px 15px rgba(0, 255, 255, 0.6);
 }
+/* styles/PricingProcess.module.css - TAMBAHKAN DI BAGIAN PALING BAWAH */
+
+/* --- RESPONSIVENESS: Mobile / Tablet Kecil --- */
+@media (max-width: 900px) {
+    /* 1. Atur ulang grid untuk menjadi 1 kolom di layar kecil/sedang */
+    .packageGrid {
+        /* Memastikan grid hanya memiliki satu kolom */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        text-align: left;
+        grid-template-columns: 1fr; 
+        /* Pastikan elemen tengah di layar sempit */
+        max-width: 400px; /* Batasi lebar grid agar rapi di tengah */
+        margin: 50px auto 0 auto;
+    }
+    /* Tambahkan style untuk item individual agar mengambil lebar penuh di mobile */
+.packageCard {
+    /* Set basis lebar. Misalnya, 30% untuk desktop (agar muat 3) */
+    flex-basis: 30%; 
+    min-width: 300px; /* Minimal lebar kartu */
+    /* ... (Style lainnya tetap sama) ... */
+}
+
+/* --- RESPONSIF KHUSUS UNTUK MOBILE --- */
+@media (max-width: 768px) { 
+    .packageCard {
+        /* Di layar kecil, paksa setiap kartu mengambil lebar 100% dari parent-nya */
+        flex-basis: 100%; 
+        min-width: unset; /* Hapus batasan min-width */
+    }
+
+    .packageGrid {
+        /* Hilangkan pembatasan max-width grid jika ada, agar mengisi layar */
+        /* max-width: none; */ 
+        /* Pusatkan konten */
+        margin: 50px 0 0 0; /* Sesuaikan margin atas */
+        padding: 0 5%; /* Beri padding agar tidak mentok ke pinggir */
+    }
+}
+    
+    /* 2. Sesuaikan Padding Kontainer */
+    .sectionContainer {
+        /* Beri padding horizontal lebih sedikit di HP */
+        padding: 50px 20px; 
+    }
+    
+    .title {
+        /* Kecilkan judul di mobile */
+        font-size: 2rem;
+    }
+    
+    /* 3. Pastikan packageCard memiliki lebar penuh */
+    .packageCard {
+        width: 100%; /* Memastikan card mengisi lebar grid */
+    }
+}

@@ -1,12 +1,13 @@
 // ===============================================================
 // app/page.jsx
-// LANDING PAGE UTAMA GUSRICH + PENJELASAN PER BARIS
+// LANDING PAGE UTAMA GUSRICH
 // ===============================================================
 
-// 1. IMPORT COMPONENT – Rapikan pakai alias "@/components"
+// 1. IMPORT COMPONENTS
 import Hero from '@/components/Hero.jsx';
 import PainPoint from '@/components/PainPoint.jsx';
 import SolusiTuntas from '@/components/SolusiTuntas.jsx';
+import AboutMe from '@/components/AboutMe.jsx';
 import Testimonial from '@/components/Testimonial.jsx';
 import PricingProcess from '@/components/PricingProcess.jsx';
 import ClosingArgument from '@/components/ClosingArgument.jsx';
@@ -15,8 +16,7 @@ import Footer from '@/components/Footer.jsx';
 
 
 // ===============================================================
-// 2. SEO METADATA (OTOMATIS DIHANDLE NEXT.JS V16)
-// Metadata ini override metadata dari layout.jsx
+// 2. SEO METADATA
 // ===============================================================
 export const metadata = {
   title: 'GusRich Programmer | Clean Code • PageSpeed 90+ • SEO Teknikal',
@@ -30,7 +30,7 @@ export const metadata = {
     siteName: 'GusRich Web Programmer',
     images: [
       {
-        url: '/og-image.jpg',     // BEST PRACTICE: pakai relative path
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'GusRich Web Programmer Clean Code',
@@ -47,14 +47,10 @@ export const metadata = {
   },
 };
 
-
 // ===============================================================
-// 3. PAGE UTAMA – WAJIB ADA 1 export default
+// 3. PAGE UTAMA
 // ===============================================================
 export default function Home() {
-
-  // 3A. JSON-LD untuk Rich Result Google
-  // Ini wajib disiapkan sebagai Object, nanti dijadikan <script>
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -68,29 +64,24 @@ export default function Home() {
     }
   };
 
-  // 4. MAIN CONTENT — Komponen Landing Page Lo
   return (
-    <main>
-      {/* 
-        JSON-LD harus dimasukkan sebagai raw script.
-        Next.js otomatis menaruhnya hanya di output final.
-      */}
+    <>
+      {/* JSON-LD SCRIPT */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* COMPONENT HALAMAN BERURUTAN */}
+      {/* HALAMAN UTAMA */}
       <Hero />
       <PainPoint />
       <SolusiTuntas />
+      <AboutMe />
       <Testimonial />
       <PricingProcess />
       <ClosingArgument />
       <Faq />
-
-      {/* FOOTER hanya ditaruh di page, bukan di layout */}
       <Footer />
-    </main>
+    </>
   );
 }
