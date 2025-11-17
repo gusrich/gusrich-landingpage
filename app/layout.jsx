@@ -4,7 +4,11 @@ import Navbar from "../components/Navbar.jsx";
 export const metadata = {
   title: "GusRich Web Programmer | Clean Code & PageSpeed 90+",
   description: "Jasa pembuatan website clean code, cepat, dan SEO kuat tanpa plugin berat.",
+  other: {
+    "google-site-verification": "5w9WSGfKHyy8esuN-uXI4ol0jeum4HJyiOhR-O4VgJE",
+  },
 };
+
 
 export default function RootLayout({ children }) {
   return (
